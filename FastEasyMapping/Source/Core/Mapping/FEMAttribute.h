@@ -7,6 +7,8 @@
 
 @interface FEMAttribute : NSObject <FEMProperty>
 
+@property(nonatomic, assign) BOOL excludeOnSerializationIfNull;
+
 - (nullable id)mapValue:(nullable id)value;
 - (nullable id)reverseMapValue:(nullable id)value;
 

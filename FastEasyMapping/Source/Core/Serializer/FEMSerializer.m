@@ -49,7 +49,9 @@
 	if (returnedValue) {
         returnedValue = [fieldMapping reverseMapValue:returnedValue] ?: [NSNull null];
 
-		[self setValue:returnedValue forKeyPath:fieldMapping.keyPath inRepresentation:representation];
+        if (!(returnedValue == [NSNull null] && fieldMapping.excludeOnSerializationIfNull)) {
+            [self setValue:returnedValue forKeyPath:fieldMapping.keyPath inRepresentation:representation];
+        }
 	}
 }
 
